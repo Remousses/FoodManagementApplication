@@ -1,0 +1,8 @@
+TODO FoodManagement application :
+✔ Afficher la date d'expiration @done(21-03-06 00:44)
+✔ Mettre un texte area plutot qu'un input @done(21-03-06 00:44)
+✔ Eviter le crash au moment du spilt @done(21-03-06 00:44)
+✔ Trie par date les plus vielle en premier @done(21-03-06 00:44)
+✔ Sauvegarder à chaque validation @done(21-03-06 00:44)
+✔ Ecrire dans le fichier JSON @done(21-03-06 00:44)
+✔ Onglet pour frigo et congel @done(21-03-06 00:44)

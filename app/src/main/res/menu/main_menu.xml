@@ -3,8 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.foodmanagementapplication.MainActivity">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:id="@+id/navigation_fridge"
+        android:title="Frigo"/>
+
+    <item
+        android:id="@+id/navigation_freezer"
+        android:title="Congèle"
+        app:actionViewClass="androidx.fragment.app.FragmentContainerView"/>
 </menu>
