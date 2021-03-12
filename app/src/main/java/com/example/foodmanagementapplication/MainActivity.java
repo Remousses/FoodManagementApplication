@@ -1,6 +1,7 @@
 package com.example.foodmanagementapplication;
 
 import com.example.foodmanagementapplication.beans.Ingredient;
+import com.example.foodmanagementapplication.crud.FreezerOfFridgeCRUD;
 import com.example.foodmanagementapplication.crud.ParentCRUD;
 import com.example.foodmanagementapplication.crud.FreezerCRUD;
 import com.example.foodmanagementapplication.crud.FridgeCRUD;
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     private IngredientRecyclerViewAdapter ingredientAdapter;
     private static FridgeCRUD fridge;
     private static FreezerCRUD freezer;
+    private static FreezerOfFridgeCRUD freezerOfFridge;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
     private void initIngredientsView() {
         this.fridge = new FridgeCRUD(getApplicationContext());
         this.freezer = new FreezerCRUD(getApplicationContext());
+        this.freezerOfFridge = new FreezerOfFridgeCRUD(getApplicationContext());
         this.ingredientAdapter = new IngredientRecyclerViewAdapter(this);
         this.ingredientAdapter.setAllIngredients(this.fridge.read());
         this.ingredientsView = findViewById(R.id.ingredientsView);
@@ -169,6 +172,9 @@ public class MainActivity extends AppCompatActivity {
         if(this.freezer.isActive()) {
             return this.freezer;
         }
+        if(this.freezerOfFridge.isActive()) {
+            return this.freezerOfFridge;
+        }
         return null;
     }
 
@@ -190,11 +196,21 @@ public class MainActivity extends AppCompatActivity {
                 if (!this.fridge.isActive()) {
                     this.ingredientAdapter.setAllIngredients(this.fridge.read());
                     this.freezer.setActive(false);
+                    this.freezerOfFridge.setActive(false);
                 }
                 break;
             case R.id.navigation_freezer:
                 if (!this.freezer.isActive()) {
                     this.ingredientAdapter.setAllIngredients(this.freezer.read());
+                    this.fridge.setActive(false);
+                    this.freezerOfFridge.setActive(false);
+                }
+                break;
+
+            case R.id.navigation_freezer_of_fridge:
+                if (!this.freezerOfFridge.isActive()) {
+                    this.ingredientAdapter.setAllIngredients(this.freezerOfFridge.read());
+                    this.freezer.setActive(false);
                     this.fridge.setActive(false);
                 }
                 break;

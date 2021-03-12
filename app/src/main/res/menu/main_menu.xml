@@ -10,4 +10,9 @@
         android:id="@+id/navigation_freezer"
         android:title="Congèle"
         app:actionViewClass="androidx.fragment.app.FragmentContainerView"/>
+
+    <item
+        android:id="@+id/navigation_freezer_of_fridge"
+        android:title="Congèle du frigo"
+        app:actionViewClass="androidx.fragment.app.FragmentContainerView"/>
 </menu>
