@@ -1,6 +1,5 @@
 package com.example.foodmanagementapplication;
 
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +18,6 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
 
 public class IngredientRecyclerViewAdapter extends RecyclerView.Adapter<IngredientRecyclerViewAdapter.ViewHolder> {
@@ -68,7 +66,7 @@ public class IngredientRecyclerViewAdapter extends RecyclerView.Adapter<Ingredie
             }).show();
         });
 
-        if (DateUtil.checkPeriodicity(actualDate, ingredient.getExpirationDate())) {
+        if (!DateUtil.checkPeriodicity(actualDate, ingredient.getExpirationDate())) {
             holder.itemView.setBackgroundColor(Color.RED);
             myTextView.setTextColor(Color.WHITE);
         } else {

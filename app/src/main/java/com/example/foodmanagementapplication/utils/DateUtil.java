@@ -42,7 +42,8 @@ public class DateUtil {
     }
 
     public static boolean checkPeriodicity(final LocalDate actualDate, final LocalDate dateToCompare) {
-        return dateToCompare.isBefore(actualDate) || ((dateToCompare.isEqual(actualDate) || dateToCompare.isAfter(actualDate)) && Period.between(actualDate, dateToCompare).getDays() < 3);
+        final Period between = Period.between(actualDate, dateToCompare);
+        return dateToCompare.isAfter(actualDate) && between.getYears() > 0 || between.getMonths() > 0 || between.getDays() > 3;
     }
 
     public static LocalDate chooseAppropriatedDate(final String stringDate) {
